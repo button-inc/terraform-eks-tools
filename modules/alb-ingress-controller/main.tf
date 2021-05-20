@@ -305,13 +305,43 @@ resource "kubernetes_deployment" "this" {
             "--aws-region=${var.region}",
             "--aws-max-retries=10",
           ]
+
+          port {
+            name           = "health"
+            container_port = 10254
+            protocol       = "TCP"
+          }
+
+          readiness_probe {
+            http_get {
+              path   = "/healthz"
+              port   = "health"
+              scheme = "HTTP"
+            }
+
+            initial_delay_seconds = 30
+            period_seconds        = 60
+            timeout_seconds       = 3
+          }
+
+
+          liveness_probe {
+            http_get {
+              path   = "/healthz"
+              port   = "health"
+              scheme = "HTTP"
+            }
+
+            initial_delay_seconds = 60
+            period_seconds        = 60
+          }
+
           volume_mount {
             mount_path = "/var/run/secrets/kubernetes.io/serviceaccount"
             name       = kubernetes_service_account.this[0].default_secret_name
             read_only  = true
           }
         }
-
         volume {
           name = kubernetes_service_account.this[0].default_secret_name
 
