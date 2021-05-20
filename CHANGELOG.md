@@ -10,6 +10,12 @@ project adheres to [Semantic Versioning](http://semver.org/).
 
 
 
+<a name="v0.2.0"></a>
+## [v0.2.0] - 2021-05-20
+DOCS:
+- Update documentations
+
+
 <a name="v0.1.0"></a>
 ## v0.1.0 - 2021-05-20
 FEATURES:
@@ -19,4 +25,5 @@ CI:
 - Install python via asdf
 
 
-[Unreleased]: https://github.com/button-inc/terraform-eks-tools/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/button-inc/terraform-eks-tools/compare/v0.2.0...HEAD
+[v0.2.0]: https://github.com/button-inc/terraform-eks-tools/compare/v0.1.0...v0.2.0
