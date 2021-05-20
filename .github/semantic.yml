@@ -25,6 +25,6 @@ types:
   - ci
   - chore
 
-# Allow use of Merge commits (eg on github: "Merge branch 'master' into feature/ride-unicorns")
+# Allow use of Merge commits (eg on github: "Merge branch 'main' into feature/ride-unicorns")
 # this is only relevant when using commitsOnly: true (or titleAndCommits: true)
 allowMergeCommits: false
