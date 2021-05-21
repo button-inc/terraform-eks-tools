@@ -9,9 +9,16 @@ Terraform module which creates Kubernetes tools on AWS EKS.
   - see https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.2/
 
 - `External DNS`: This module can install the External DNS into AWS-managed EKS clusters.
+
   - see https://github.com/kubernetes-sigs/external-dns
   - see https://github.com/kubernetes-sigs/external-dns/blob/master/docs/tutorials/aws.md
   - see https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.1/guide/integrations/external_dns/
+
+- `Metrics Server`: This module can install the Metrics Server into AWS-managed EKS clusters.
+
+  - see https://github.com/kubernetes-sigs/metrics-server
+  - see https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/
+  - see https://docs.aws.amazon.com/eks/latest/userguide/vertical-pod-autoscaler.html
 
 ## Assumptions
 

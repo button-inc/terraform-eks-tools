@@ -24,6 +24,12 @@ variable "create_external_dns" {
   default     = true
 }
 
+variable "create_metrics_server" {
+  description = "Whether to create Metrics server"
+  type        = bool
+  default     = true
+}
+
 variable "alb_ingress_controller_version" {
   description = "The verion of the ALB ingress controller"
   default     = "1.1.7"
@@ -32,4 +38,9 @@ variable "alb_ingress_controller_version" {
 variable "external_dns_version" {
   description = "The version of the External DNS"
   default     = "0.8.0"
+}
+
+variable "metrics_server_version" {
+  description = "The version of the Metrics server"
+  default     = "0.4.4"
 }

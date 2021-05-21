@@ -13,13 +13,13 @@ variable "region" {
 }
 
 variable "create" {
-  description = "Whether to create External DNS"
+  description = "Whether to create Metrics Server"
   type        = bool
   default     = true
 }
 
-# see https://github.com/kubernetes-sigs/external-dns/releases
+# see https://github.com/kubernetes-sigs/metrics-server/releases
 variable "tool_version" {
-  description = "The version of the External DNS"
-  default     = "0.8.0"
+  description = "The version of the Metrics Server"
+  default     = "0.4.4"
 }

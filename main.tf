@@ -17,3 +17,13 @@ module "external_dns" {
   region       = var.region
   tool_version = var.external_dns_version
 }
+
+module "metrics_server" {
+  source = "./modules/metrics-server"
+
+  create       = var.create_metrics_server
+  cluster_name = var.cluster_name
+  vpc_id       = var.vpc_id
+  region       = var.region
+  tool_version = var.metrics_server_version
+}
