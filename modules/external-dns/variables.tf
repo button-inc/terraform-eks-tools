@@ -17,3 +17,9 @@ variable "create" {
   type        = bool
   default     = true
 }
+
+# see https://github.com/kubernetes-sigs/external-dns/releases/tag/v0.8.0
+variable "tool_version" {
+  description = "The version of the External DNS"
+  default     = "0.8.0"
+}

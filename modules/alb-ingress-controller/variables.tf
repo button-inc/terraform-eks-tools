@@ -12,9 +12,9 @@ variable "region" {
   default     = "ca-central-1"
 }
 
-variable "controller_verion" {
+variable "tool_version" {
   description = "The verion of the ALB ingress controller"
-  default     = "v1.1.7"
+  default     = "1.1.7"
 }
 
 variable "create" {

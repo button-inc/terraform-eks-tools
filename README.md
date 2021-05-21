@@ -13,6 +13,13 @@ Terraform module which creates Kubernetes tools on AWS EKS.
   - see https://github.com/kubernetes-sigs/external-dns/blob/master/docs/tutorials/aws.md
   - see https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.1/guide/integrations/external_dns/
 
+## Assumptions
+
+- You have created an `OpenID Connect (OIDC) identity provider` for the EKS cluster.
+  - see https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html
+  - see https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_openid_connect_provider
+  - see https://github.com/terraform-aws-modules/terraform-aws-eks/blob/master/irsa.tf
+
 ## Usage
 
 ```hcl

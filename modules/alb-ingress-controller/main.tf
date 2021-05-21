@@ -2,6 +2,7 @@ locals {
   name          = "alb-ingress-controller"
   namespace     = "kube-system"
   ingress_class = "alb"
+  image         = "docker.io/amazon/aws-alb-ingress-controller:v${var.tool_version}"
 }
 
 data "aws_iam_policy_document" "alb_policy" {
@@ -265,7 +266,7 @@ resource "kubernetes_deployment" "this" {
     namespace = local.namespace
     labels = {
       "app.kubernetes.io/name"       = local.name
-      "app.kubernetes.io/version"    = var.controller_verion
+      "app.kubernetes.io/version"    = var.tool_version
       "app.kubernetes.io/managed-by" = "terraform"
     }
   }
@@ -283,7 +284,7 @@ resource "kubernetes_deployment" "this" {
       metadata {
         labels = {
           "app.kubernetes.io/name"    = local.name
-          "app.kubernetes.io/version" = var.controller_verion
+          "app.kubernetes.io/version" = var.tool_version
         }
       }
 
@@ -295,7 +296,7 @@ resource "kubernetes_deployment" "this" {
 
         container {
           name              = local.name
-          image             = "docker.io/amazon/aws-alb-ingress-controller:${var.controller_verion}"
+          image             = local.image
           image_pull_policy = "Always"
 
           args = [
@@ -323,7 +324,6 @@ resource "kubernetes_deployment" "this" {
             period_seconds        = 60
             timeout_seconds       = 3
           }
-
 
           liveness_probe {
             http_get {

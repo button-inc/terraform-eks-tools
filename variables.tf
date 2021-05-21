@@ -24,7 +24,12 @@ variable "create_external_dns" {
   default     = true
 }
 
-variable "alb_ingress_controller_verion" {
+variable "alb_ingress_controller_version" {
   description = "The verion of the ALB ingress controller"
-  default     = "v1.1.7"
+  default     = "1.1.7"
+}
+
+variable "external_dns_version" {
+  description = "The version of the External DNS"
+  default     = "0.8.0"
 }

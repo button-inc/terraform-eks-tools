@@ -1,6 +1,7 @@
 locals {
   name      = "external-dns"
   namespace = "kube-system"
+  image     = "k8s.gcr.io/external-dns/external-dns:v${var.tool_version}"
 }
 
 data "aws_iam_policy_document" "dns_policy" {
@@ -159,6 +160,7 @@ resource "kubernetes_deployment" "this" {
     namespace = kubernetes_service_account.this[0].metadata[0].namespace
     labels = {
       "app.kubernetes.io/name"       = local.name
+      "app.kubernetes.io/version"    = var.tool_version
       "app.kubernetes.io/managed-by" = "terraform"
     }
   }
@@ -179,7 +181,8 @@ resource "kubernetes_deployment" "this" {
     template {
       metadata {
         labels = {
-          "app.kubernetes.io/name" = local.name
+          "app.kubernetes.io/name"    = local.name
+          "app.kubernetes.io/version" = var.tool_version
         }
       }
 
@@ -188,7 +191,7 @@ resource "kubernetes_deployment" "this" {
 
         container {
           name              = local.name
-          image             = "registry.opensource.zalan.do/teapot/external-dns:latest"
+          image             = local.image
           image_pull_policy = "Always"
 
           args = [
