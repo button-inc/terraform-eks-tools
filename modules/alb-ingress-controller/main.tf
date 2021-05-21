@@ -171,7 +171,7 @@ data "aws_iam_policy_document" "oidc_assume_role" {
 resource "aws_iam_policy" "this" {
   count = var.create ? 1 : 0
 
-  name        = "${var.cluster_id}-alb-ingress-iam-policy"
+  name        = "${var.cluster_name}-alb-ingress-iam-policy"
   description = "Policy required by the Kubernetes AWS ALB Ingress controller"
   policy      = data.aws_iam_policy_document.alb_policy[0].json
 }
@@ -179,7 +179,7 @@ resource "aws_iam_policy" "this" {
 resource "aws_iam_role" "this" {
   count = var.create ? 1 : 0
 
-  name                  = "${var.cluster_id}-alb-ingress-iam-role"
+  name                  = "${var.cluster_name}-alb-ingress-iam-role"
   description           = "Role required by the Kubernetes AWS ALB Ingress controller"
   force_detach_policies = true
   assume_role_policy    = data.aws_iam_policy_document.oidc_assume_role[0].json

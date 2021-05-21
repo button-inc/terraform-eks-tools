@@ -1,4 +1,4 @@
-variable "cluster_id" {
+variable "cluster_name" {
   description = "The id of the EKS cluster"
 }
 

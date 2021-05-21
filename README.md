@@ -18,7 +18,7 @@ Terraform module which creates Kubernetes tools on AWS EKS.
 ```hcl
 module "eks_tools" {
   source  = "button-inc/tools/eks"
-  cluster_id = "eks-dev"
+  cluster_name = "eks-dev"
 }
 ```
 

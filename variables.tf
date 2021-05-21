@@ -1,5 +1,5 @@
-variable "cluster_id" {
-  description = "The id of the EKS cluster"
+variable "cluster_name" {
+  description = "The name of the EKS cluster"
 }
 
 variable "vpc_id" {

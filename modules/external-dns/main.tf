@@ -56,7 +56,7 @@ data "aws_iam_policy_document" "oidc_assume_role" {
 resource "aws_iam_policy" "this" {
   count = var.create ? 1 : 0
 
-  name        = "${var.cluster_id}-dns-iam-policy"
+  name        = "${var.cluster_name}-dns-iam-policy"
   description = "Policy required by the Kubernetes AWS External DNS"
   policy      = data.aws_iam_policy_document.dns_policy[0].json
 }
@@ -64,7 +64,7 @@ resource "aws_iam_policy" "this" {
 resource "aws_iam_role" "this" {
   count = var.create ? 1 : 0
 
-  name                  = "${var.cluster_id}-dns-iam-role"
+  name                  = "${var.cluster_name}-dns-iam-role"
   description           = "Role required by the Kubernetes AWS External DNS"
   force_detach_policies = true
   assume_role_policy    = data.aws_iam_policy_document.oidc_assume_role[0].json
