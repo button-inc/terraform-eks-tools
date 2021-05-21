@@ -10,6 +10,12 @@ project adheres to [Semantic Versioning](http://semver.org/).
 
 
 
+<a name="v0.3.0"></a>
+## [v0.3.0] - 2021-05-21
+FEATURES:
+- Add metrics server submodule
+
+
 <a name="v0.2.0"></a>
 ## [v0.2.0] - 2021-05-20
 DOCS:
@@ -25,5 +31,6 @@ CI:
 - Install python via asdf
 
 
-[Unreleased]: https://github.com/button-inc/terraform-eks-tools/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/button-inc/terraform-eks-tools/compare/v0.3.0...HEAD
+[v0.3.0]: https://github.com/button-inc/terraform-eks-tools/compare/v0.2.0...v0.3.0
 [v0.2.0]: https://github.com/button-inc/terraform-eks-tools/compare/v0.1.0...v0.2.0
