@@ -27,3 +27,10 @@ module "metrics_server" {
   region       = var.region
   tool_version = var.metrics_server_version
 }
+
+module "cluster_namespaces" {
+  source = "./modules/cluster-namespaces"
+
+  cluster_name = var.cluster_name
+  namespaces   = var.cluster_namespaces
+}

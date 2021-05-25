@@ -20,6 +20,8 @@ Terraform module which creates Kubernetes tools on AWS EKS.
   - see https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/
   - see https://docs.aws.amazon.com/eks/latest/userguide/vertical-pod-autoscaler.html
 
+- `Cluster Namespaces`: This module can create k8s namespaces on the cluster.
+
 ## Assumptions
 
 - You have created an `OpenID Connect (OIDC) identity provider` for the EKS cluster.
@@ -31,8 +33,13 @@ Terraform module which creates Kubernetes tools on AWS EKS.
 
 ```hcl
 module "eks_tools" {
-  source  = "button-inc/tools/eks"
-  cluster_name = "eks-dev"
+  source = "button-inc/tools/eks"
+
+  cluster_name                  = "eks-dev"
+  create_alb_ingress_controller = true
+  create_external_dns           = true
+  create_metrics_server         = true
+  cluster_namespaces            = ["dev", "test", "prod"]
 }
 ```
 

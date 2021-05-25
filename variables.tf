@@ -44,3 +44,8 @@ variable "metrics_server_version" {
   description = "The version of the Metrics server"
   default     = "0.4.4"
 }
+
+variable "cluster_namespaces" {
+  description = "The k8s namespaces to create on the cluster"
+  default     = []
+}
