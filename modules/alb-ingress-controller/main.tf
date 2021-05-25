@@ -335,29 +335,9 @@ resource "kubernetes_deployment" "this" {
             initial_delay_seconds = 60
             period_seconds        = 60
           }
-
-          volume_mount {
-            mount_path = "/var/run/secrets/kubernetes.io/serviceaccount"
-            name       = kubernetes_service_account.this[0].default_secret_name
-            read_only  = true
-          }
-        }
-        volume {
-          name = kubernetes_service_account.this[0].default_secret_name
-
-          secret {
-            secret_name = kubernetes_service_account.this[0].default_secret_name
-          }
         }
       }
     }
-  }
-
-  lifecycle {
-    ignore_changes = [
-      spec[0].template[0].spec[0].volume,
-      spec[0].template[0].spec[0].container[0].volume_mount
-    ]
   }
 
   depends_on = [kubernetes_cluster_role_binding.this]
